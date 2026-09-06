@@ -187,35 +187,24 @@ section{position:relative}
 .chip.static{cursor:default}
 .chip.static:hover{border-color:var(--line)}
 
-/* ---- Roadmap (disciplines, step by step — snakes row to row) ---- */
-.roadmap{margin-top:28px}
-.rm-row{display:flex;position:relative;margin-bottom:52px}
-.rm-row:last-child{margin-bottom:0}
-.rm-row:nth-child(even){flex-direction:row-reverse}
-/* with 3 equal flex columns, dot centers sit at 1/6 and 5/6 of the row width — not a fixed px inset */
-.rm-row::before{content:"";position:absolute;left:16.667%;right:16.667%;top:15px;height:1px;background:var(--line);z-index:0}
-.rm-row:not(:last-child)::after{content:"";position:absolute;top:100%;height:52px;width:1px;background:var(--line);z-index:0}
-.rm-row:nth-child(odd):not(:last-child)::after{right:16.667%}
-.rm-row:nth-child(even):not(:last-child)::after{left:16.667%}
-.rm-arrow{position:absolute;top:100%;margin-top:37px;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--clay-deep);z-index:2}
-.rm-arrow.right{right:calc(16.667% - 5px)}
-.rm-arrow.left{left:calc(16.667% - 5px)}
-.rm-step{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;padding:0 6px;z-index:1}
-.rm-step .dot{width:31px;height:31px;flex:none;border-radius:50%;background:var(--bone);border:1.5px solid var(--line);display:grid;place-items:center;margin-bottom:14px;font-family:'Bricolage Grotesque';font-weight:700;font-size:11.5px;color:var(--pine);transition:.3s}
-.rm-step:hover .dot{border-color:var(--clay);background:var(--clay);color:#fff}
-.rm-step h4{font-size:13.5px;font-weight:600;line-height:1.25;margin-bottom:5px}
-.rm-step p{font-size:11.5px;color:var(--muted);line-height:1.3}
-@media(max-width:980px){
-  .roadmap{position:relative}
-  .roadmap::before{content:"";position:absolute;left:50%;top:4px;bottom:4px;width:1px;background:var(--line);transform:translateX(-50%)}
-  .rm-row{display:contents}
-  .rm-row::before,.rm-row::after{content:none}
-  .rm-arrow{display:none}
-  .rm-step{padding:0 12px 42px;position:relative;z-index:1}
-  .rm-row:last-child .rm-step:last-child{padding-bottom:0}
-  .rm-step h4{font-size:15.5px;margin-bottom:3px}
-  .rm-step p{font-size:13px}
-}
+/* ---- Roadmap deck (disciplines, swipeable step by step) ---- */
+.rm-deck-wrap{margin-top:28px}
+.rm-deck{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;padding:6px 4px 26px;margin:0 -4px;-webkit-overflow-scrolling:touch;cursor:grab;user-select:none;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
+.rm-deck::-webkit-scrollbar{display:none}
+.rm-deck.dragging{cursor:grabbing;scroll-snap-type:none}
+.rm-card{flex:0 0 auto;width:min(76vw,300px);scroll-snap-align:center;background:var(--card);border:1px solid var(--line);border-radius:5px;padding:30px 26px;display:flex;flex-direction:column;gap:16px;min-height:180px;transition:border-color .35s,box-shadow .35s,transform .35s}
+.rm-card .rm-num{font-family:'Bricolage Grotesque';font-weight:700;font-size:13px;letter-spacing:.12em;color:var(--clay-deep)}
+.rm-card h4{font-family:'Bricolage Grotesque';font-weight:600;font-size:24px;letter-spacing:-.01em}
+.rm-card p{color:var(--muted);font-size:14.5px;line-height:1.5;margin-top:-4px}
+.rm-card.active{border-color:var(--clay);box-shadow:0 20px 44px -30px rgba(22,49,43,.4);transform:translateY(-3px)}
+.rm-controls{display:flex;align-items:center;justify-content:center;gap:20px}
+.rm-arrow-btn{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--pine);display:grid;place-items:center;cursor:pointer;transition:.25s;flex:none}
+.rm-arrow-btn:hover{background:var(--pine);color:var(--on-pine);border-color:var(--pine)}
+.rm-arrow-btn:disabled{opacity:.35;cursor:default;background:transparent;color:var(--pine);border-color:var(--line)}
+.rm-dots{display:flex;gap:8px;align-items:center}
+.rm-dots button{width:7px;height:7px;padding:0;border-radius:50%;background:var(--line);border:none;cursor:pointer;transition:.25s}
+.rm-dots button.on{background:var(--clay);width:22px;border-radius:5px}
+@media(max-width:560px){.rm-card{width:80vw;padding:26px 22px}}
 
 /* ---- About spread ---- */
 .about{display:grid;grid-template-columns:.92fr 1.08fr;gap:64px;align-items:center}
@@ -501,24 +490,23 @@ footer a:hover{color:var(--on-pine)}
     </div>
 
     <div class="rv" style="margin-top:48px">
-      <h4 class="pq-h">Les 9 disciplines du parcours — étape par étape</h4>
-      <div class="roadmap">
-        <div class="rm-row">
-          <div class="rm-step"><span class="dot">01</span><div><h4>Kinésithérapie</h4><p>Mouvement & renforcement</p></div></div>
-          <div class="rm-step"><span class="dot">02</span><div><h4>Ostéopathie</h4><p>Équilibre du corps</p></div></div>
-          <div class="rm-step"><span class="dot">03</span><div><h4>Nutrition</h4><p>Conseils personnalisés</p></div></div>
-          <span class="rm-arrow right"></span>
+      <h4 class="pq-h">Les 9 disciplines du parcours — glissez pour découvrir chaque étape</h4>
+      <div class="rm-deck-wrap">
+        <div class="rm-deck" id="rmDeck" tabindex="0" role="region" aria-label="Les 9 disciplines du Parcours Mensuel">
+          <div class="rm-card"><span class="rm-num">01</span><h4 class="dsp">Kinésithérapie</h4><p>Renforcer le corps, sans jamais forcer sur la douleur.</p></div>
+          <div class="rm-card"><span class="rm-num">02</span><h4 class="dsp">Ostéopathie</h4><p>On traite la cause profonde, pas seulement le symptôme.</p></div>
+          <div class="rm-card"><span class="rm-num">03</span><h4 class="dsp">Nutrition</h4><p>Des conseils qui accélèrent les effets de chaque séance.</p></div>
+          <div class="rm-card"><span class="rm-num">04</span><h4 class="dsp">Podologie</h4><p>Corriger l'appui pour soulager genoux, dos et posture.</p></div>
+          <div class="rm-card"><span class="rm-num">05</span><h4 class="dsp">Réflexologie</h4><p>Réduire le stress et les tensions, point par point.</p></div>
+          <div class="rm-card"><span class="rm-num">06</span><h4 class="dsp">Drainage lymphatique</h4><p>Moins de rétention d'eau, plus de légèreté au quotidien.</p></div>
+          <div class="rm-card"><span class="rm-num">07</span><h4 class="dsp">Madérothérapie</h4><p>Stimuler la circulation et redessiner la silhouette.</p></div>
+          <div class="rm-card"><span class="rm-num">08</span><h4 class="dsp">Ventouses</h4><p>Libérer les tensions musculaires les plus profondes.</p></div>
+          <div class="rm-card"><span class="rm-num">09</span><h4 class="dsp">Soins bien-être</h4><p>Une pause qui vous appartient, chaque mois, rien que pour vous.</p></div>
         </div>
-        <div class="rm-row">
-          <div class="rm-step"><span class="dot">04</span><div><h4>Podologie</h4><p>Posture & marche</p></div></div>
-          <div class="rm-step"><span class="dot">05</span><div><h4>Réflexologie</h4><p>Détente ciblée</p></div></div>
-          <div class="rm-step"><span class="dot">06</span><div><h4>Drainage lymphatique</h4><p>Circulation & légèreté</p></div></div>
-          <span class="rm-arrow left"></span>
-        </div>
-        <div class="rm-row">
-          <div class="rm-step"><span class="dot">07</span><div><h4>Madérothérapie</h4><p>Modelage en bois</p></div></div>
-          <div class="rm-step"><span class="dot">08</span><div><h4>Ventouses</h4><p>Relâchement musculaire</p></div></div>
-          <div class="rm-step"><span class="dot">09</span><div><h4>Soins bien-être</h4><p>Rituel corporel</p></div></div>
+        <div class="rm-controls">
+          <button class="rm-arrow-btn" id="rmPrev" aria-label="Discipline précédente" type="button"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 13L5 8l5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="rm-dots" id="rmDots"></div>
+          <button class="rm-arrow-btn" id="rmNext" aria-label="Discipline suivante" type="button"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
       </div>
     </div>
@@ -921,6 +909,90 @@ document.getElementById('bSubmit').onclick=()=>{
   bForm.hidden=true;bThanks.hidden=false;
   bModal.querySelector('.modal-card').scrollTop=0;
 };
+
+// ---- Roadmap deck (swipe / drag / wheel / arrows / keyboard) ----
+(function(){
+  const deck=document.getElementById('rmDeck');
+  if(!deck)return;
+  const cards=[...deck.querySelectorAll('.rm-card')];
+  const dotsWrap=document.getElementById('rmDots');
+  const prevBtn=document.getElementById('rmPrev');
+  const nextBtn=document.getElementById('rmNext');
+  const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  cards.forEach((_,i)=>{
+    const b=document.createElement('button');
+    b.setAttribute('aria-label','Aller à la discipline '+(i+1));
+    if(i===0)b.classList.add('on');
+    b.onclick=()=>goTo(i);
+    dotsWrap.appendChild(b);
+  });
+  const dots=[...dotsWrap.children];
+
+  let active=0;
+  function setActive(i){
+    active=Math.max(0,Math.min(cards.length-1,i));
+    cards.forEach((c,idx)=>c.classList.toggle('active',idx===active));
+    dots.forEach((d,idx)=>d.classList.toggle('on',idx===active));
+    prevBtn.disabled=active===0;
+    nextBtn.disabled=active===cards.length-1;
+  }
+  function goTo(i){
+    cards[Math.max(0,Math.min(cards.length-1,i))].scrollIntoView({behavior:reduceMotion?'auto':'smooth',inline:'center',block:'nearest'});
+  }
+  prevBtn.onclick=()=>goTo(active-1);
+  nextBtn.onclick=()=>goTo(active+1);
+  deck.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'){e.preventDefault();goTo(active+1)}
+    if(e.key==='ArrowLeft'){e.preventDefault();goTo(active-1)}
+  });
+
+  // track which card is centered as the user scrolls/swipes
+  let raf=null;
+  deck.addEventListener('scroll',()=>{
+    if(raf)return;
+    raf=requestAnimationFrame(()=>{
+      raf=null;
+      const mid=deck.scrollLeft+deck.clientWidth/2;
+      let closest=0,best=Infinity;
+      cards.forEach((c,i)=>{
+        const d=Math.abs((c.offsetLeft+c.offsetWidth/2)-mid);
+        if(d<best){best=d;closest=i}
+      });
+      setActive(closest);
+    });
+  },{passive:true});
+
+  // desktop: click-and-drag to scroll
+  let isDown=false,startX=0,startScroll=0,moved=false;
+  deck.addEventListener('pointerdown',e=>{
+    isDown=true;moved=false;deck.classList.add('dragging');
+    startX=e.clientX;startScroll=deck.scrollLeft;
+    deck.setPointerCapture(e.pointerId);
+  });
+  deck.addEventListener('pointermove',e=>{
+    if(!isDown)return;
+    const dx=e.clientX-startX;
+    if(Math.abs(dx)>4)moved=true;
+    deck.scrollLeft=startScroll-dx;
+  });
+  function endDrag(){isDown=false;deck.classList.remove('dragging')}
+  deck.addEventListener('pointerup',endDrag);
+  deck.addEventListener('pointercancel',endDrag);
+  deck.addEventListener('pointerleave',endDrag);
+  // prevent the drag from also firing as a click on release
+  deck.addEventListener('click',e=>{if(moved){e.preventDefault();e.stopPropagation()}},true);
+
+  // desktop: vertical wheel/trackpad scroll pans the deck horizontally
+  deck.addEventListener('wheel',e=>{
+    if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){
+      deck.scrollLeft+=e.deltaY;
+      e.preventDefault();
+    }
+  },{passive:false});
+
+  setActive(0);
+})();
 
 // gallery — auto-detect image01.webp, image02.webp ... (unlimited), built as a brick wall
 const galScroll=document.getElementById('galScroll');
