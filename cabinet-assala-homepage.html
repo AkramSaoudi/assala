@@ -188,23 +188,38 @@ section{position:relative}
 .chip.static:hover{border-color:var(--line)}
 
 /* ---- Roadmap deck (disciplines, swipeable step by step) ---- */
-.rm-deck-wrap{margin-top:28px}
-.rm-deck{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;padding:6px 4px 26px;margin:0 -4px;-webkit-overflow-scrolling:touch;cursor:grab;user-select:none;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
+.rm-deck-wrap{margin-top:32px}
+.rm-deck{display:flex;gap:clamp(24px,4vw,56px);overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;padding:14px 4px 34px;margin:0 -4px;-webkit-overflow-scrolling:touch;cursor:grab;user-select:none;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 2%,#000 98%,transparent);mask-image:linear-gradient(90deg,transparent,#000 2%,#000 98%,transparent)}
 .rm-deck::-webkit-scrollbar{display:none}
 .rm-deck.dragging{cursor:grabbing;scroll-snap-type:none}
-.rm-card{flex:0 0 auto;width:min(76vw,300px);scroll-snap-align:center;background:var(--card);border:1px solid var(--line);border-radius:5px;padding:30px 26px;display:flex;flex-direction:column;gap:16px;min-height:180px;transition:border-color .35s,box-shadow .35s,transform .35s}
-.rm-card .rm-num{font-family:'Bricolage Grotesque';font-weight:700;font-size:13px;letter-spacing:.12em;color:var(--clay-deep)}
-.rm-card h4{font-family:'Bricolage Grotesque';font-weight:600;font-size:24px;letter-spacing:-.01em}
-.rm-card p{color:var(--muted);font-size:14.5px;line-height:1.5;margin-top:-4px}
-.rm-card.active{border-color:var(--clay);box-shadow:0 20px 44px -30px rgba(22,49,43,.4);transform:translateY(-3px)}
+.rm-card{position:relative;flex:0 0 auto;width:min(60vw,360px);scroll-snap-align:center;background:none;border:none;padding:0 4px;display:flex;flex-direction:column;justify-content:flex-end;min-height:300px;overflow:hidden}
+.rm-card .rm-num{position:absolute;top:-10px;left:0;font-family:'Bricolage Grotesque';font-weight:700;font-size:clamp(100px,10vw,156px);line-height:1;color:var(--pine);opacity:.07;letter-spacing:-.03em;pointer-events:none;transition:opacity .4s}
+.rm-card h4{position:relative;font-size:clamp(28px,2.6vw,40px);letter-spacing:-.01em;margin-bottom:10px;transition:color .35s}
+.rm-card p{position:relative;color:var(--muted);font-size:16.5px;line-height:1.5;max-width:30ch}
+.rm-card.active h4{color:var(--clay-deep)}
+.rm-card.active .rm-num{opacity:.13}
+.rm-hint,.rm-final{display:none}
 .rm-controls{display:flex;align-items:center;justify-content:center;gap:20px}
-.rm-arrow-btn{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--pine);display:grid;place-items:center;cursor:pointer;transition:.25s;flex:none}
+.rm-arrow-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--pine);display:grid;place-items:center;cursor:pointer;transition:.25s;flex:none}
 .rm-arrow-btn:hover{background:var(--pine);color:var(--on-pine);border-color:var(--pine)}
-.rm-arrow-btn:disabled{opacity:.35;cursor:default;background:transparent;color:var(--pine);border-color:var(--line)}
+.rm-arrow-btn:disabled{opacity:.3;cursor:default;background:transparent;color:var(--pine);border-color:var(--line)}
 .rm-dots{display:flex;gap:8px;align-items:center}
 .rm-dots button{width:7px;height:7px;padding:0;border-radius:50%;background:var(--line);border:none;cursor:pointer;transition:.25s}
 .rm-dots button.on{background:var(--clay);width:22px;border-radius:5px}
-@media(max-width:560px){.rm-card{width:80vw;padding:26px 22px}}
+
+/* Phone: each discipline is a full-screen panel — scroll to advance */
+@media(max-width:680px){
+  .rm-deck-wrap{width:100vw;margin-left:calc(50% - 50vw)}
+  .rm-deck{flex-direction:column;scroll-snap-type:y mandatory;height:100svh;overflow-y:auto;overflow-x:hidden;-webkit-mask-image:none;mask-image:none;padding:0;margin:0;gap:0}
+  .rm-card{flex:0 0 100%;width:100%;height:100svh;min-height:unset;padding:0 34px;justify-content:center;align-items:flex-start}
+  .rm-card .rm-num{top:auto;bottom:58%;left:32px;font-size:clamp(140px,44vw,230px)}
+  .rm-card h4{font-size:clamp(38px,10vw,56px);margin-bottom:16px}
+  .rm-card p{font-size:19px;max-width:26ch}
+  .rm-controls{display:none}
+  .rm-hint{display:flex;align-items:center;gap:9px;margin-top:28px;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);animation:rmbounce 1.8s ease-in-out infinite}
+  .rm-final{display:inline-flex;align-items:center;gap:9px;margin-top:28px;font-size:16px;font-weight:600;color:var(--clay-deep)}
+  @keyframes rmbounce{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+}
 
 /* ---- About spread ---- */
 .about{display:grid;grid-template-columns:.92fr 1.08fr;gap:64px;align-items:center}
@@ -493,15 +508,15 @@ footer a:hover{color:var(--on-pine)}
       <h4 class="pq-h">Les 9 disciplines du parcours — glissez pour découvrir chaque étape</h4>
       <div class="rm-deck-wrap">
         <div class="rm-deck" id="rmDeck" tabindex="0" role="region" aria-label="Les 9 disciplines du Parcours Mensuel">
-          <div class="rm-card"><span class="rm-num">01</span><h4 class="dsp">Kinésithérapie</h4><p>Renforcer le corps, sans jamais forcer sur la douleur.</p></div>
-          <div class="rm-card"><span class="rm-num">02</span><h4 class="dsp">Ostéopathie</h4><p>On traite la cause profonde, pas seulement le symptôme.</p></div>
-          <div class="rm-card"><span class="rm-num">03</span><h4 class="dsp">Nutrition</h4><p>Des conseils qui accélèrent les effets de chaque séance.</p></div>
-          <div class="rm-card"><span class="rm-num">04</span><h4 class="dsp">Podologie</h4><p>Corriger l'appui pour soulager genoux, dos et posture.</p></div>
-          <div class="rm-card"><span class="rm-num">05</span><h4 class="dsp">Réflexologie</h4><p>Réduire le stress et les tensions, point par point.</p></div>
-          <div class="rm-card"><span class="rm-num">06</span><h4 class="dsp">Drainage lymphatique</h4><p>Moins de rétention d'eau, plus de légèreté au quotidien.</p></div>
-          <div class="rm-card"><span class="rm-num">07</span><h4 class="dsp">Madérothérapie</h4><p>Stimuler la circulation et redessiner la silhouette.</p></div>
-          <div class="rm-card"><span class="rm-num">08</span><h4 class="dsp">Ventouses</h4><p>Libérer les tensions musculaires les plus profondes.</p></div>
-          <div class="rm-card"><span class="rm-num">09</span><h4 class="dsp">Soins bien-être</h4><p>Une pause qui vous appartient, chaque mois, rien que pour vous.</p></div>
+          <div class="rm-card"><span class="rm-num">01</span><h4 class="dsp">Kinésithérapie</h4><p>Renforcer le corps, sans jamais forcer sur la douleur.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
+          <div class="rm-card"><span class="rm-num">02</span><h4 class="dsp">Ostéopathie</h4><p>On traite la cause profonde, pas seulement le symptôme.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
+          <div class="rm-card"><span class="rm-num">03</span><h4 class="dsp">Nutrition</h4><p>Des conseils qui accélèrent les effets de chaque séance.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
+          <div class="rm-card"><span class="rm-num">04</span><h4 class="dsp">Podologie</h4><p>Corriger l'appui pour soulager genoux, dos et posture.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
+          <div class="rm-card"><span class="rm-num">05</span><h4 class="dsp">Réflexologie</h4><p>Réduire le stress et les tensions, point par point.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
+          <div class="rm-card"><span class="rm-num">06</span><h4 class="dsp">Drainage lymphatique</h4><p>Moins de rétention d'eau, plus de légèreté au quotidien.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
+          <div class="rm-card"><span class="rm-num">07</span><h4 class="dsp">Madérothérapie</h4><p>Stimuler la circulation et redessiner la silhouette.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
+          <div class="rm-card"><span class="rm-num">08</span><h4 class="dsp">Ventouses</h4><p>Libérer les tensions musculaires les plus profondes.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
+          <div class="rm-card"><span class="rm-num">09</span><h4 class="dsp">Soins bien-être</h4><p>Une pause qui vous appartient, chaque mois, rien que pour vous.</p><a class="rm-final js-wa" href="#" data-wa-text="Bonjour, je souhaite réserver mon Parcours Mensuel ASSALA.">Réserver mon Parcours Mensuel →</a></div>
         </div>
         <div class="rm-controls">
           <button class="rm-arrow-btn" id="rmPrev" aria-label="Discipline précédente" type="button"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 13L5 8l5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -938,40 +953,35 @@ document.getElementById('bSubmit').onclick=()=>{
     nextBtn.disabled=active===cards.length-1;
   }
   function goTo(i){
-    cards[Math.max(0,Math.min(cards.length-1,i))].scrollIntoView({behavior:reduceMotion?'auto':'smooth',inline:'center',block:'nearest'});
+    cards[Math.max(0,Math.min(cards.length-1,i))].scrollIntoView({behavior:reduceMotion?'auto':'smooth',block:'center',inline:'center'});
   }
   prevBtn.onclick=()=>goTo(active-1);
   nextBtn.onclick=()=>goTo(active+1);
   deck.addEventListener('keydown',e=>{
-    if(e.key==='ArrowRight'){e.preventDefault();goTo(active+1)}
-    if(e.key==='ArrowLeft'){e.preventDefault();goTo(active-1)}
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();goTo(active+1)}
+    if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();goTo(active-1)}
   });
 
-  // track which card is centered as the user scrolls/swipes
-  let raf=null;
-  deck.addEventListener('scroll',()=>{
-    if(raf)return;
-    raf=requestAnimationFrame(()=>{
-      raf=null;
-      const mid=deck.scrollLeft+deck.clientWidth/2;
-      let closest=0,best=Infinity;
-      cards.forEach((c,i)=>{
-        const d=Math.abs((c.offsetLeft+c.offsetWidth/2)-mid);
-        if(d<best){best=d;closest=i}
-      });
-      setActive(closest);
-    });
-  },{passive:true});
+  // track the most-visible card — works for both the horizontal desktop deck and the vertical full-screen phone layout
+  const ratios=new Map(cards.map(c=>[c,0]));
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>ratios.set(e.target,e.intersectionRatio));
+    let bestCard=cards[0],bestRatio=-1;
+    ratios.forEach((r,c)=>{if(r>bestRatio){bestRatio=r;bestCard=c}});
+    setActive(cards.indexOf(bestCard));
+  },{root:deck,threshold:[0,.15,.3,.45,.6,.75,.9,1]});
+  cards.forEach(c=>io.observe(c));
 
-  // desktop: click-and-drag to scroll
+  // desktop only: click-and-drag to pan horizontally (phone keeps native vertical scrolling)
   let isDown=false,startX=0,startScroll=0,moved=false;
   deck.addEventListener('pointerdown',e=>{
+    if(e.pointerType!=='mouse')return;
     isDown=true;moved=false;deck.classList.add('dragging');
     startX=e.clientX;startScroll=deck.scrollLeft;
     deck.setPointerCapture(e.pointerId);
   });
   deck.addEventListener('pointermove',e=>{
-    if(!isDown)return;
+    if(!isDown||e.pointerType!=='mouse')return;
     const dx=e.clientX-startX;
     if(Math.abs(dx)>4)moved=true;
     deck.scrollLeft=startScroll-dx;
@@ -983,8 +993,9 @@ document.getElementById('bSubmit').onclick=()=>{
   // prevent the drag from also firing as a click on release
   deck.addEventListener('click',e=>{if(moved){e.preventDefault();e.stopPropagation()}},true);
 
-  // desktop: vertical wheel/trackpad scroll pans the deck horizontally
+  // desktop: vertical wheel/trackpad scroll pans the deck horizontally (skipped when the deck scrolls vertically, i.e. phone layout)
   deck.addEventListener('wheel',e=>{
+    if(deck.scrollWidth<=deck.clientWidth)return;
     if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){
       deck.scrollLeft+=e.deltaY;
       e.preventDefault();
