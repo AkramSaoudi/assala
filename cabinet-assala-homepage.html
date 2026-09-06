@@ -110,9 +110,16 @@ header.scrolled{background:rgba(242,237,228,.88);backdrop-filter:blur(14px);box-
 .hero-meta{padding-bottom:18px}
 .hero-meta p{font-size:18px;color:var(--muted);max-width:34ch;margin:0 0 28px}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px}
-.hero-proof{display:flex;align-items:center;gap:14px;font-size:13.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
-.hero-proof .rate{font-family:'Bricolage Grotesque';font-weight:700;font-size:22px;color:var(--pine)}
+.hero-proof{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:22px}
+.proof-parcours{display:inline-flex;align-items:center;gap:16px;border-radius:4px}
+.proof-parcours:hover .rate,.proof-parcours:hover .proof-txt{color:var(--clay-deep)}
+.proof-parcours:hover .proof-arrow{transform:translateX(6px)}
+.hero-proof .rate{font-family:'Bricolage Grotesque';font-weight:700;font-size:clamp(40px,4.6vw,56px);line-height:1;color:var(--pine);transition:color .3s}
+.proof-txt{font-size:14.5px;font-weight:600;letter-spacing:.005em;color:var(--ink);line-height:1.3;transition:color .3s}
+.proof-arrow{color:var(--pine);flex:none;transition:transform .3s}
+.proof-reviews{font-size:13px;color:var(--muted);text-align:right;line-height:1.5}
 .hero-proof .stars{color:var(--clay);letter-spacing:2px;font-size:13px}
+@media(max-width:560px){.hero-proof{flex-direction:column;align-items:flex-start;gap:18px}.proof-reviews{text-align:left}}
 .hero-figure{position:relative}
 .photo{position:relative;border-radius:3px;overflow:hidden;background:linear-gradient(150deg,#27574A,#16312B 70%)}
 .photo::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 70% 10%,transparent,rgba(22,49,43,.55));mix-blend-mode:multiply}
@@ -438,9 +445,12 @@ footer a:hover{color:var(--on-pine)}
           <a class="btn btn-line" href="#reserver">Prendre rendez-vous</a>
         </div>
         <div class="hero-proof">
-          <span class="rate">9</span>
-          <span>Disciplines réunies<br>en un seul lieu</span>
-          <span style="margin-left:auto;text-align:right"><span class="stars">★★★★★</span> 4,9 · [N] avis<br>Sur rendez-vous 6 jours / 7</span>
+          <a class="proof-parcours" href="#parcours">
+            <span class="rate">09</span>
+            <span class="proof-txt">Disciplines réunies<br>en un seul lieu</span>
+            <svg class="proof-arrow" width="18" height="10" viewBox="0 0 22 12" fill="none"><path d="M0 6h20M15 1l5 5-5 5" stroke="currentColor" stroke-width="1.5"/></svg>
+          </a>
+          <span class="proof-reviews"><span class="stars">★★★★★</span> 4,9 · [N] avis<br>Sur rendez-vous 6 jours / 7</span>
         </div>
       </div>
     </div>
