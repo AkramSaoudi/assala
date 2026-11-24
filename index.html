@@ -165,7 +165,7 @@ section{position:relative}
 .idx{font-family:'Bricolage Grotesque';font-weight:600;font-size:13px;letter-spacing:.1em;color:var(--clay-deep)}
 
 /* ---- Services as editorial index ---- */
-.srv-row{display:grid;grid-template-columns:84px 1fr auto;gap:28px;align-items:center;padding:30px 0;border-top:1px solid var(--line);cursor:pointer;transition:padding .35s}
+.srv-row{display:grid;grid-template-columns:84px 1fr auto auto;gap:28px;align-items:center;padding:30px 0;border-top:1px solid var(--line);cursor:pointer;transition:padding .35s}
 .srv-row:last-child{border-bottom:1px solid var(--line)}
 .srv-row .num{font-family:'Bricolage Grotesque';font-weight:600;font-size:15px;color:var(--muted);transition:.35s}
 .srv-row .main{display:flex;align-items:center;gap:22px}
@@ -610,7 +610,8 @@ footer a:hover{color:var(--on-pine)}
     <div class="sec-head rv">
       <div>
         <span class="idx">02 — Les soins</span>
-        <h2 class="dsp" style="margin-top:16px">Chaque corps a son histoire. Chaque séance, son bilan.</h2>
+        <h2 class="dsp" style="margin-top:16px">Mal au dos, au cou, au genou ? On cherche la cause.</h2>
+        <p style="color:var(--muted);font-size:16px;max-width:52ch;margin-top:16px">Chaque corps a son histoire, chaque séance son bilan. Voici les douleurs que nous soulageons le plus souvent.</p>
       </div>
       <a class="arrowlink" href="#">Tous les soins <svg width="22" height="12" viewBox="0 0 22 12" fill="none"><path d="M0 6h20M15 1l5 5-5 5" stroke="currentColor" stroke-width="1.5"/></svg></a>
     </div>
@@ -619,60 +620,60 @@ footer a:hover{color:var(--on-pine)}
       <a class="srv-row rv" href="#">
         <span class="num">01</span>
         <span class="main">
-          <img class="ico" src="structurelle.png" alt="Scoliose">
-          <h3 class="dsp">Scoliose</h3>
+          <img class="ico" src="structurelle.png" alt="">
+          <h3 class="dsp">Mal au dos &amp; scoliose</h3>
         </span>
-        <span class="desc">Redresser la colonne et soulager les douleurs de dos.</span>
+        <span class="desc">Dos qui tire, colonne déviée, posture qui fatigue : on rééquilibre et on soulage.</span>
         <span class="go"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5"/></svg></span>
       </a>
 
       <a class="srv-row rv" href="#">
         <span class="num">02</span>
         <span class="main">
-          <img class="ico" src="mal-au-cou.svg" alt="Mal au cou">
+          <img class="ico" src="mal-au-cou.svg" alt="">
           <h3 class="dsp">Mal au cou</h3>
         </span>
-        <span class="desc">Nuque raide, tensions et douleurs qui remontent à la tête.</span>
+        <span class="desc">Nuque bloquée, torticolis, maux de tête qui partent de la nuque.</span>
         <span class="go"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5"/></svg></span>
       </a>
 
       <a class="srv-row rv" href="#">
         <span class="num">03</span>
         <span class="main">
-          <img class="ico" src="mal-lombaire.svg" alt="Mal lombaire">
-          <h3 class="dsp">Mal lombaire</h3>
+          <img class="ico" src="mal-lombaire.svg" alt="">
+          <h3 class="dsp">Mal au bas du dos</h3>
         </span>
-        <span class="desc">Douleurs en bas du dos, après un effort ou une longue journée.</span>
+        <span class="desc">Lumbago, sciatique, douleur après un effort ou une longue journée assise.</span>
         <span class="go"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5"/></svg></span>
       </a>
 
       <a class="srv-row rv" href="#">
         <span class="num">04</span>
         <span class="main">
-          <img class="ico" src="tendinite.svg" alt="Tendinite">
-          <h3 class="dsp">Tendinite</h3>
+          <img class="ico" src="tendinite.svg" alt="">
+          <h3 class="dsp">Mal à l'épaule, au coude, à la cheville</h3>
         </span>
-        <span class="desc">Douleurs et inflammation des tendons (cheville, coude, épaule).</span>
+        <span class="desc">Tendinite, inflammation, douleur au moindre mouvement.</span>
         <span class="go"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5"/></svg></span>
       </a>
 
       <a class="srv-row rv" href="#">
         <span class="num">05</span>
         <span class="main">
-          <img class="ico" src="genou.svg" alt="Genou">
-          <h3 class="dsp">Genou</h3>
+          <img class="ico" src="genou.svg" alt="">
+          <h3 class="dsp">Mal au genou</h3>
         </span>
-        <span class="desc">Douleurs, gonflement et raideur du genou au quotidien.</span>
+        <span class="desc">Genou douloureux, gonflé ou raide — à la marche, aux escaliers, au sport.</span>
         <span class="go"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5"/></svg></span>
       </a>
 
       <a class="srv-row rv" href="#">
         <span class="num">06</span>
         <span class="main">
-          <img class="ico" src="grossesse.png" alt="Grossesse & post-partum">
-          <h3 class="dsp">Grossesse & post-partum</h3>
+          <img class="ico" src="grossesse.png" alt="">
+          <h3 class="dsp">Douleurs de grossesse</h3>
         </span>
-        <span class="desc">Un accompagnement doux, avant et après l'accouchement.</span>
+        <span class="desc">Dos, bassin, jambes lourdes : un accompagnement doux avant et après l'accouchement.</span>
         <span class="go"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5"/></svg></span>
       </a>
     </div>
@@ -1138,6 +1139,26 @@ bSubmit.onclick=async()=>{
     setActive(cards.indexOf(bestCard));
   },{root:deck,threshold:[0,.15,.3,.45,.6,.75,.9,1]});
   cards.forEach(c=>io.observe(c));
+
+  // phone only: when a scroll comes to rest with the full-screen deck partly on screen
+  // (arriving from above), glide the page so the deck fills the screen; the next swipes
+  // then move card by card. Waiting for the scroll to stop avoids fighting the finger.
+  const phone=matchMedia('(max-width:680px)');
+  let lastY=scrollY,dir=0,restTimer=0,gliding=false;
+  addEventListener('scroll',()=>{
+    const y=scrollY;if(y!==lastY)dir=y>lastY?1:-1;lastY=y;
+    if(!phone.matches||gliding)return;
+    clearTimeout(restTimer);
+    restTimer=setTimeout(()=>{
+      const top=deck.getBoundingClientRect().top;
+      if(dir>0&&top>2&&top<innerHeight*.65){
+        gliding=true;
+        scrollTo({top:scrollY+top,behavior:reduceMotion?'auto':'smooth'});
+        setTimeout(()=>{gliding=false;lastY=scrollY},900);
+      }
+    },140);
+  },{passive:true});
+
 
   // desktop only: click-and-drag to pan horizontally (phone keeps native vertical scrolling)
   let isDown=false,startX=0,startScroll=0,moved=false;
