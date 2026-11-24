@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Centre Assala — Parcours Mensuel Pluridisciplinaire à [Commune], Alger</title>
-<meta name="description" content="Centre pluridisciplinaire à [Commune], Alger. Kinésithérapie, ostéopathie, nutrition, podologie, réflexologie et bien-être réunis dans un Parcours Mensuel personnalisé. Prenez rendez-vous en ligne ou sur WhatsApp.">
+<title>Centre Assala — Parcours Mensuel Pluridisciplinaire à Draria, Alger</title>
+<meta name="description" content="Centre pluridisciplinaire à Draria, Alger. Kinésithérapie, ostéopathie, nutrition, podologie, réflexologie et bien-être réunis dans un Parcours Mensuel personnalisé. Prenez rendez-vous en ligne ou sur WhatsApp.">
 <link rel="canonical" href="https://[votre-domaine].dz/">
 <meta property="og:type" content="business.business">
 <meta property="og:site_name" content="Centre Assala">
-<meta property="og:title" content="Centre Assala — Parcours Mensuel Pluridisciplinaire à [Commune], Alger">
+<meta property="og:title" content="Centre Assala — Parcours Mensuel Pluridisciplinaire à Draria, Alger">
 <meta property="og:description" content="Une équipe, une vision, votre équilibre — le Parcours Mensuel ASSALA réunit kinésithérapie, ostéopathie, nutrition, podologie et soins bien-être en un seul lieu.">
 <meta property="og:image" content="https://[votre-domaine].dz/hero_section.webp">
 <meta property="og:url" content="https://[votre-domaine].dz/">
@@ -20,12 +20,12 @@
   "@context": "https://schema.org",
   "@type": "MedicalBusiness",
   "name": "Centre Assala",
-  "description": "Centre pluridisciplinaire — kinésithérapie, ostéopathie, nutrition, podologie, réflexologie, drainage lymphatique, madérothérapie, ventouses et soins bien-être, réunis dans un Parcours Mensuel personnalisé.",
+  "description": "Centre pluridisciplinaire — kinésithérapie, ostéopathie, nutrition, podologie, réflexologie, drainage lymphatique, ventouses et soins bien-être, réunis dans un Parcours Mensuel personnalisé.",
   "image": "https://[votre-domaine].dz/hero_section.webp",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "[Adresse]",
-    "addressLocality": "[Commune]",
+    "addressLocality": "Draria",
     "addressRegion": "Alger",
     "addressCountry": "DZ"
   },
@@ -94,7 +94,7 @@ header.scrolled{background:rgba(242,237,228,.88);backdrop-filter:blur(14px);box-
 .wordmark{display:flex;flex-direction:column;line-height:1}
 .wordmark b{font-family:'Bricolage Grotesque';font-weight:700;font-size:21px;letter-spacing:-.02em}
 .wordmark small{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-top:3px}
-.nav-links{display:flex;gap:34px}
+.nav-links{display:flex;gap:30px;align-items:center}
 .nav-links a{font-size:14.5px;font-weight:500;position:relative;padding:4px 0}
 .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1.5px;background:var(--clay);transition:width .3s}
 .nav-links a:hover::after{width:100%}
@@ -102,8 +102,28 @@ header.scrolled{background:rgba(242,237,228,.88);backdrop-filter:blur(14px);box-
 .burger{display:none;flex-direction:column;gap:6px;background:none;border:none;cursor:pointer;padding:6px}
 .burger span{width:26px;height:2px;background:var(--ink);display:block;transition:.3s}
 
+/* ---- Formations: announcement bar + highlighted nav link ---- */
+.ann{background:var(--pine);color:var(--on-pine);font-size:13.5px;overflow:hidden;max-height:44px;transition:max-height .35s ease}
+header.scrolled .ann{max-height:0}
+.ann a{display:flex;align-items:center;justify-content:center;gap:12px;height:44px;padding:0 16px;white-space:nowrap}
+.ann .tag{background:var(--clay);color:#241008;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:3px 8px;border-radius:20px;flex:none}
+.ann .txt{overflow:hidden;text-overflow:ellipsis}
+.ann .go{font-weight:700;color:var(--clay);display:inline-flex;align-items:center;gap:6px;flex:none}
+.ann a:hover .go svg{transform:translateX(4px)}
+.ann .go svg{transition:transform .3s}
+@media(max-width:560px){.ann .long{display:none}}
+.nav-links a.nav-fm{display:inline-flex;align-items:center;gap:7px;padding:7px 14px;margin:-7px 0;border:1px solid var(--clay);border-radius:40px;color:var(--clay-deep);font-weight:600}
+.nav-links a.nav-fm::after{display:none}
+.nav-links a.nav-fm:hover{background:var(--clay);color:#241008}
+.nav-fm .dot{width:7px;height:7px;border-radius:50%;background:var(--clay);box-shadow:0 0 0 0 rgba(199,123,98,.6);animation:fmpulse 2s infinite}
+.nav-links a.nav-fm:hover .dot{background:#241008}
+@keyframes fmpulse{0%{box-shadow:0 0 0 0 rgba(199,123,98,.55)}70%{box-shadow:0 0 0 8px rgba(199,123,98,0)}100%{box-shadow:0 0 0 0 rgba(199,123,98,0)}}
+.sheet nav a.sheet-fm{color:var(--clay);display:flex;align-items:center;gap:12px}
+.sheet-fm .new{font-family:'Hanken Grotesk';font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--clay);color:#241008;padding:4px 9px;border-radius:20px}
+.fm-sec{background:var(--bone-2)}
+
 /* ---- Hero ---- */
-.hero{padding:148px 0 0;position:relative}
+.hero{padding:188px 0 0;position:relative}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:end}
 .hero h1{font-size:clamp(46px,7.2vw,104px);margin:22px 0 0}
 .hero h1 em{font-style:normal;color:var(--clay-deep)}
@@ -256,6 +276,25 @@ section{position:relative}
 @media(max-width:980px){.gal-wall{column-count:2;column-gap:14px}.gal-item{margin-bottom:14px}}
 @media(max-width:560px){.gal-wall{column-count:1}}
 
+/* ---- Formations teaser ---- */
+.fm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.fm-card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:4px;overflow:hidden;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.fm-card:hover{transform:translateY(-4px);box-shadow:0 26px 50px -34px rgba(22,49,43,.55)}
+.fm-media{position:relative;aspect-ratio:16/10;background:linear-gradient(150deg,var(--pine-600),var(--pine) 70%);overflow:hidden}
+.fm-media img{width:100%;height:100%;object-fit:cover}
+.fm-badge{position:absolute;left:14px;top:14px;padding:6px 11px;border-radius:30px;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--card);color:var(--pine)}
+.fm-badge.hot{background:var(--clay);color:#241008}
+.fm-badge.full{background:var(--ink);color:var(--on-pine)}
+.fm-body{padding:22px 22px 20px;display:flex;flex-direction:column;flex:1}
+.fm-theme{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--clay-deep);margin-bottom:10px}
+.fm-body h3{font-family:'Bricolage Grotesque';font-weight:700;font-size:22px;line-height:1.12;letter-spacing:-.015em;margin-bottom:14px}
+.fm-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+.fm-foot b{color:var(--pine);font-weight:600;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.fm-card:hover .fm-foot b{color:var(--clay-deep)}
+.fm-empty{grid-column:1/-1;border:1px dashed var(--line);border-radius:4px;padding:40px 28px;color:var(--muted);font-size:16px}
+@media(max-width:980px){.fm-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.fm-grid{grid-template-columns:1fr}}
+
 /* ---- Testimonials editorial ---- */
 .testi{background:var(--bone-2)}
 .tq{position:relative;min-height:230px}
@@ -330,7 +369,7 @@ footer a:hover{color:var(--on-pine)}
 @media(max-width:980px){
   .nav-links,.nav-right .btn{display:none}
   .burger{display:flex}
-  .hero{padding-top:120px}
+  .hero{padding-top:160px}
   .hero-grid{grid-template-columns:1fr;gap:40px}
   .hero-figure{order:-1}
   .sec{padding:80px 0}
@@ -356,10 +395,23 @@ footer a:hover{color:var(--on-pine)}
 .bfield input.err{border-color:var(--clay-deep);box-shadow:0 0 0 3px rgba(176,96,74,.14)}
 .brow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .chips{display:flex;flex-wrap:wrap;gap:9px}
-.chip{padding:10px 15px;font-size:14px;font-weight:500;color:var(--pine);background:var(--bone);border:1px solid var(--line);border-radius:40px;cursor:pointer;transition:.2s;user-select:none}
+.chip{padding:10px 15px;font-size:14px;font-weight:500;color:var(--pine);background:var(--bone);border:1px solid var(--line);border-radius:40px;cursor:pointer;transition:background .2s,border-color .2s,color .2s;user-select:none}
 .chip:hover{border-color:var(--pine)}
 .chip.sel{background:var(--pine);color:var(--on-pine);border-color:var(--pine)}
 .chips.err .chip{border-color:var(--clay-deep)}
+.bsub{margin-top:12px;padding:14px;border:1px dashed var(--line);border-radius:4px;background:var(--bone)}
+.bsub[hidden]{display:none}
+.bsub small{display:block;font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--muted);margin-bottom:9px}
+.bsub .chip{background:var(--card)}
+.bsub .chip.sel{background:var(--pine)}
+.slots{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.slot{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:12px 14px;text-align:left;background:var(--bone);border:1px solid var(--line);border-radius:4px;cursor:pointer;font-family:'Hanken Grotesk';color:var(--pine);transition:background .2s,border-color .2s,color .2s}
+.slot b{font-family:'Bricolage Grotesque';font-weight:600;font-size:16px}
+.slot span{font-size:13px;color:var(--muted)}
+.slot:hover{border-color:var(--pine)}
+.slot.sel{background:var(--pine);border-color:var(--pine);color:var(--on-pine)}
+.slot.sel span{color:rgba(239,233,220,.75)}
+.slots.err .slot{border-color:var(--clay-deep)}
 .modal .btn{width:100%;margin-top:6px}
 .modal-or{text-align:center;margin:16px 0 4px;font-size:13px;color:var(--muted)}
 .modal-wa{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;height:50px;border:1px solid var(--line);border-radius:3px;font-weight:600;font-size:14.5px;color:var(--pine);transition:.2s}
@@ -386,6 +438,7 @@ footer a:hover{color:var(--on-pine)}
   <a href="#top" class="active"><span class="node"></span><span class="lbl">Accueil</span></a>
   <a href="#parcours"><span class="node"></span><span class="lbl">Parcours</span></a>
   <a href="#soin"><span class="node"></span><span class="lbl">Les soins</span></a>
+  <a href="#formations"><span class="node"></span><span class="lbl">Formations</span></a>
   <a href="#approche"><span class="node"></span><span class="lbl">Approche</span></a>
   <a href="#assala"><span class="node"></span><span class="lbl">Assala</span></a>
   <a href="#avis"><span class="node"></span><span class="lbl">Avis</span></a>
@@ -393,8 +446,15 @@ footer a:hover{color:var(--on-pine)}
 </nav>
 
 <header id="hdr">
+  <div class="ann">
+    <a href="formations.html">
+      <span class="tag">Nouveau</span>
+      <span class="txt">Pôle formation<span class="long"> — <span id="annCount">nos formations</span> ouvertes aux inscriptions</span></span>
+      <span class="go">Découvrir <svg width="16" height="9" viewBox="0 0 22 12" fill="none"><path d="M0 6h20M15 1l5 5-5 5" stroke="currentColor" stroke-width="1.8"/></svg></span>
+    </a>
+  </div>
   <div class="wrap nav">
-    <a class="wordmark" href="#top"><b>Cabinet Assala</b><small>Centre pluridisciplinaire · Alger</small></a>
+    <a class="wordmark" href="#top"><b>Pôle Assala</b><small>Centre pluridisciplinaire · Alger</small></a>
     <nav class="nav-links">
       <a href="#parcours">Parcours Mensuel</a>
       <a href="#soin">Les soins</a>
@@ -402,6 +462,7 @@ footer a:hover{color:var(--on-pine)}
       <a href="#assala">Le cabinet</a>
       <a href="#avis">Avis</a>
       <a href="#faq">Questions</a>
+      <a href="formations.html" class="nav-fm"><span class="dot"></span>Formations</a>
     </nav>
     <div class="nav-right">
       <a class="btn btn-clay" href="#reserver">Prendre rendez-vous</a>
@@ -413,10 +474,11 @@ footer a:hover{color:var(--on-pine)}
 <!-- Mobile sheet -->
 <div class="sheet" id="sheet">
   <div class="top">
-    <span class="wordmark"><b>Cabinet Assala</b><small>Centre pluridisciplinaire · Alger</small></span>
+    <span class="wordmark"><b>Pôle Assala</b><small>Centre pluridisciplinaire · Alger</small></span>
     <button class="x" id="closeSheet" aria-label="Fermer">×</button>
   </div>
   <nav>
+    <a href="formations.html" class="sheet-fm">Formations <span class="new">Nouveau</span></a>
     <a href="#parcours">Parcours Mensuel</a>
     <a href="#soin">Les soins</a>
     <a href="#approche">Approche</a>
@@ -426,7 +488,7 @@ footer a:hover{color:var(--on-pine)}
   </nav>
   <div class="acts">
     <a class="btn btn-clay" href="#reserver">Rendez-vous</a>
-    <a class="btn btn-ghost js-wa" href="#" data-wa-text="Bonjour, je souhaite prendre rendez-vous au Cabinet Assala.">WhatsApp</a>
+    <a class="btn btn-ghost js-wa" href="#" data-wa-text="Bonjour, je souhaite prendre rendez-vous au Pôle Assala.">WhatsApp</a>
   </div>
 </div>
 
@@ -435,18 +497,18 @@ footer a:hover{color:var(--on-pine)}
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <span class="eyebrow">Centre Pluridisciplinaire Assala — [Commune], Alger</span>
+        <span class="eyebrow">Centre Pluridisciplinaire Assala — Draria, Alger</span>
         <h1 class="dsp">Une équipe.<br>Une vision.<br><em>Votre équilibre.</em></h1>
       </div>
       <div class="hero-meta">
-        <p>Le Parcours Mensuel ASSALA réunit kinésithérapie, ostéopathie, nutrition, podologie, réflexologie et soins bien-être — un accompagnement personnalisé, mois après mois, en un seul lieu.</p>
+        <p>L'ostéopathie au cœur du Centre Assala : une approche manuelle et globale qui traite la cause de vos douleurs — dos, nuque, articulations, maux de tête, grossesse et nourrisson — pour retrouver mobilité et équilibre.</p>
         <div class="hero-cta">
-          <a class="btn btn-clay" href="#parcours">Découvrir le Parcours Mensuel</a>
+          <a class="btn btn-clay js-wa" href="#" data-wa-text="Bonjour, je souhaite réserver une séance d'ostéopathie au Centre Assala.">Réserver une séance d'ostéopathie</a>
           <a class="btn btn-line" href="#reserver">Prendre rendez-vous</a>
         </div>
         <div class="hero-proof">
           <a class="proof-parcours" href="#parcours">
-            <span class="rate">09</span>
+            <span class="rate">08</span>
             <span class="proof-txt">Disciplines réunies<br>en un seul lieu</span>
             <svg class="proof-arrow" width="18" height="10" viewBox="0 0 22 12" fill="none"><path d="M0 6h20M15 1l5 5-5 5" stroke="currentColor" stroke-width="1.5"/></svg>
           </a>
@@ -460,15 +522,15 @@ footer a:hover{color:var(--on-pine)}
         <span class="stamp">Soin · Écoute · Équilibre ·</span>
         <img class="ph" src="hero_section.webp" alt="Centre Assala — praticien en séance" width="1289" height="1600" fetchpriority="high">
       </div>
-      <div class="hero-caption"><span>Centre Assala — [Commune]</span><span>Depuis [année]</span></div>
+      <div class="hero-caption"><span>Centre Assala — Draria</span><span>Depuis [année]</span></div>
     </div>
   </div>
 
   <!-- Marquee -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span>Kinésithérapie<span class="dot">✦</span>Ostéopathie<span class="dot">✦</span>Nutrition<span class="dot">✦</span>Podologie<span class="dot">✦</span>Réflexologie<span class="dot">✦</span>Drainage lymphatique<span class="dot">✦</span>Madérothérapie<span class="dot">✦</span>Ventouses<span class="dot">✦</span>Soins bien-être<span class="dot">✦</span></span>
-      <span>Kinésithérapie<span class="dot">✦</span>Ostéopathie<span class="dot">✦</span>Nutrition<span class="dot">✦</span>Podologie<span class="dot">✦</span>Réflexologie<span class="dot">✦</span>Drainage lymphatique<span class="dot">✦</span>Madérothérapie<span class="dot">✦</span>Ventouses<span class="dot">✦</span>Soins bien-être<span class="dot">✦</span></span>
+      <span>Kinésithérapie<span class="dot">✦</span>Ostéopathie<span class="dot">✦</span>Nutrition<span class="dot">✦</span>Podologie<span class="dot">✦</span>Réflexologie<span class="dot">✦</span>Drainage lymphatique<span class="dot">✦</span>Ventouses<span class="dot">✦</span>Soins bien-être<span class="dot">✦</span></span>
+      <span>Kinésithérapie<span class="dot">✦</span>Ostéopathie<span class="dot">✦</span>Nutrition<span class="dot">✦</span>Podologie<span class="dot">✦</span>Réflexologie<span class="dot">✦</span>Drainage lymphatique<span class="dot">✦</span>Ventouses<span class="dot">✦</span>Soins bien-être<span class="dot">✦</span></span>
     </div>
   </div>
 </section>
@@ -515,18 +577,17 @@ footer a:hover{color:var(--on-pine)}
     </div>
 
     <div class="rv" style="margin-top:48px">
-      <h4 class="pq-h">Les 9 disciplines du parcours — glissez pour découvrir chaque étape</h4>
+      <h4 class="pq-h">Les 8 disciplines du parcours — glissez pour découvrir chaque étape</h4>
       <div class="rm-deck-wrap">
-        <div class="rm-deck" id="rmDeck" tabindex="0" role="region" aria-label="Les 9 disciplines du Parcours Mensuel">
-          <div class="rm-card"><span class="rm-num">01</span><h4 class="dsp">Kinésithérapie</h4><p>Renforcer le corps, sans jamais forcer sur la douleur.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
-          <div class="rm-card"><span class="rm-num">02</span><h4 class="dsp">Ostéopathie</h4><p>On traite la cause profonde, pas seulement le symptôme.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
-          <div class="rm-card"><span class="rm-num">03</span><h4 class="dsp">Nutrition</h4><p>Des conseils qui accélèrent les effets de chaque séance.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
-          <div class="rm-card"><span class="rm-num">04</span><h4 class="dsp">Podologie</h4><p>Corriger l'appui pour soulager genoux, dos et posture.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
-          <div class="rm-card"><span class="rm-num">05</span><h4 class="dsp">Réflexologie plantaire</h4><p>Réduire le stress et les tensions, point par point.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
-          <div class="rm-card"><span class="rm-num">06</span><h4 class="dsp">Drainage lymphatique</h4><p>Moins de rétention d'eau, plus de légèreté au quotidien.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
-          <div class="rm-card"><span class="rm-num">07</span><h4 class="dsp">Madérothérapie</h4><p>Stimuler la circulation et redessiner la silhouette.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
-          <div class="rm-card"><span class="rm-num">08</span><h4 class="dsp">Ventouses (Hijama)</h4><p>Libérer les tensions musculaires les plus profondes.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
-          <div class="rm-card"><span class="rm-num">09</span><h4 class="dsp">Soins bien-être (massage de nœud musculaire)</h4><p>Une pause qui vous appartient, chaque mois, rien que pour vous.</p><a class="rm-final js-wa" href="#" data-wa-text="Bonjour, je souhaite réserver mon Parcours Mensuel ASSALA.">Réserver mon Parcours Mensuel →</a></div>
+        <div class="rm-deck" id="rmDeck" tabindex="0" role="region" aria-label="Les 8 disciplines du Parcours Mensuel">
+          <div class="rm-card"><span class="rm-num">01</span><h4 class="dsp">Kinésithérapie</h4><p>Douleur après une blessure, une opération ou un faux mouvement ? On rééduque et on renforce, sans forcer.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
+          <div class="rm-card"><span class="rm-num">02</span><h4 class="dsp">Ostéopathie</h4><p>Mal de dos, nuque bloquée, maux de tête à répétition ? On traite la cause, pas seulement le symptôme.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
+          <div class="rm-card"><span class="rm-num">03</span><h4 class="dsp">Nutrition</h4><p>Fatigue, ballonnements, poids qui ne bouge pas ? Une alimentation adaptée qui prolonge l'effet de chaque séance.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
+          <div class="rm-card"><span class="rm-num">04</span><h4 class="dsp">Podologie</h4><p>Mal aux pieds, aux genoux ou au dos en marchant ? Souvent, c'est l'appui — on le corrige.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
+          <div class="rm-card"><span class="rm-num">05</span><h4 class="dsp">Réflexologie plantaire</h4><p>Stress, sommeil agité, tensions qui s'accumulent ? On relâche le corps, point par point.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
+          <div class="rm-card"><span class="rm-num">06</span><h4 class="dsp">Drainage lymphatique</h4><p>Jambes lourdes, gonflements, rétention d'eau ? On relance la circulation pour retrouver la légèreté.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
+          <div class="rm-card"><span class="rm-num">07</span><h4 class="dsp">Ventouses (Hijama)</h4><p>Contractures tenaces, dos noué que rien ne soulage ? On libère les tensions musculaires profondes.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
+          <div class="rm-card"><span class="rm-num">08</span><h4 class="dsp">Soins bien-être (massage de nœud musculaire)</h4><p>Nœuds dans les épaules, nuque raide, fatigue nerveuse ? Un massage ciblé pour dénouer et souffler.</p><a class="rm-final js-wa" href="#" data-wa-text="Bonjour, je souhaite réserver mon Parcours Mensuel ASSALA.">Réserver mon Parcours Mensuel →</a></div>
         </div>
         <div class="rm-controls">
           <button class="rm-arrow-btn" id="rmPrev" aria-label="Discipline précédente" type="button"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 13L5 8l5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -618,6 +679,23 @@ footer a:hover{color:var(--on-pine)}
   </div>
 </section>
 
+<!-- FORMATIONS (teaser — catalogue complet sur formations.html) -->
+<section class="sec fm-sec" id="formations">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <span class="idx">03 — Formations</span>
+        <h2 class="dsp" style="margin-top:16px">Transmettre notre savoir-faire.</h2>
+        <p style="color:var(--muted);font-size:16px;max-width:52ch;margin-top:16px">Des formations pratiques en petits groupes, animées par les professionnels du centre. Consultez le programme et réservez votre place en ligne.</p>
+      </div>
+      <a class="arrowlink" href="formations.html">Toutes les formations <svg width="22" height="12" viewBox="0 0 22 12" fill="none"><path d="M0 6h20M15 1l5 5-5 5" stroke="currentColor" stroke-width="1.5"/></svg></a>
+    </div>
+    <div class="fm-grid rv" id="fmTeaser">
+      <div class="fm-empty">Découvrez nos prochaines formations sur la <a href="formations.html" style="color:var(--clay-deep);font-weight:600">page Formations →</a></div>
+    </div>
+  </div>
+</section>
+
 <!-- APPROACH -->
 <section class="sec approach" id="approche">
   <div class="wrap">
@@ -646,12 +724,12 @@ footer a:hover{color:var(--on-pine)}
     <div class="rv">
       <span class="idx">04 — Notre équipe</span>
       <blockquote class="dsp">« L'excellence, <em>au service de votre équilibre.</em> »</blockquote>
-      <p class="bio">Fondé par Assala, ostéopathe D.O., le Centre Assala réunit une équipe de spécialistes complémentaires — kinésithérapie, nutrition, podologie, réflexologie et bien-être — autour d'une même ambition : une prise en charge personnalisée, précise et globale, dans un cabinet calme à [Commune].</p>
+      <p class="bio">Fondé par Assala, ostéopathe D.O., le Centre Assala réunit une équipe de spécialistes complémentaires — kinésithérapie, nutrition, podologie, réflexologie et bien-être — autour d'une même ambition : une prise en charge personnalisée, précise et globale, dans un cabinet calme à Draria.</p>
       <div class="cred">
         <div><span>Fondatrice</span><b>Assala, Ostéopathe D.O.</b></div>
         <div><span>Expérience</span><b>+[X] années</b></div>
         <div><span>Équipe</span><b>Kiné · Nutrition · Podologie · Réflexologie</b></div>
-        <div><span>Cabinet</span><b>[Adresse], [Commune]</b></div>
+        <div><span>Cabinet</span><b>[Adresse], Draria</b></div>
       </div>
       <a class="arrowlink" href="#">Rencontrer notre équipe <svg width="22" height="12" viewBox="0 0 22 12" fill="none"><path d="M0 6h20M15 1l5 5-5 5" stroke="currentColor" stroke-width="1.5"/></svg></a>
     </div>
@@ -727,9 +805,9 @@ footer a:hover{color:var(--on-pine)}
     <p>Réservez en ligne en une minute — ou écrivez-nous sur WhatsApp.</p>
     <div class="cta">
       <a class="btn btn-clay" href="#reserver">Prendre rendez-vous</a>
-      <a class="btn btn-ghost js-wa" href="#" data-wa-text="Bonjour, je souhaite prendre rendez-vous au Cabinet Assala.">WhatsApp</a>
+      <a class="btn btn-ghost js-wa" href="#" data-wa-text="Bonjour, je souhaite prendre rendez-vous au Pôle Assala.">WhatsApp</a>
     </div>
-    <p class="addr">[Adresse], [Commune], Alger · Sur rendez-vous · [horaires]</p>
+    <p class="addr">[Adresse], Draria, Alger · Sur rendez-vous · [horaires]</p>
   </div>
 </section>
 
@@ -737,13 +815,13 @@ footer a:hover{color:var(--on-pine)}
 <footer>
   <div class="wrap">
     <div class="foot-top">
-      <div class="foot-mark dsp">Cabinet<br>Assala.</div>
-      <div><h4>Le cabinet</h4><ul><li><a href="#parcours">Parcours Mensuel</a></li><li><a href="#assala">À propos</a></li><li><a href="#soin">Les soins</a></li><li><a href="#">Que traite-t-on ?</a></li><li><a href="#">Tarifs</a></li></ul></div>
+      <div class="foot-mark dsp">Pôle<br>Assala.</div>
+      <div><h4>Le cabinet</h4><ul><li><a href="#parcours">Parcours Mensuel</a></li><li><a href="#assala">À propos</a></li><li><a href="#soin">Les soins</a></li><li><a href="formations.html">Formations</a></li><li><a href="#">Que traite-t-on ?</a></li><li><a href="#">Tarifs</a></li></ul></div>
       <div><h4>Aide</h4><ul><li><a href="#avis">Avis patients</a></li><li><a href="#">Blog & conseils</a></li><li><a href="#reserver">Réserver</a></li><li><a href="#">Itinéraire</a></li></ul></div>
-      <div><h4>Contact</h4><ul><li>[Adresse], [Commune]</li><li>[Téléphone]</li><li>WhatsApp · [Numéro]</li><li>[Horaires] · 6j/7</li></ul></div>
+      <div><h4>Contact</h4><ul><li>[Adresse], Draria</li><li>[Téléphone]</li><li>WhatsApp · [Numéro]</li><li>[Horaires] · 6j/7</li></ul></div>
     </div>
     <div class="foot-bot">
-      <span>© [Année] Cabinet Assala — Ostéopathie. Alger.</span>
+      <span>© [Année] Pôle Assala — Ostéopathie. Alger.</span>
       <span>Mentions légales · Confidentialité · FR ⇄ العربية</span>
     </div>
   </div>
@@ -752,9 +830,9 @@ footer a:hover{color:var(--on-pine)}
 <!-- Sticky mobile bar + FAB -->
 <div class="mbar">
   <a class="book" href="#reserver">Prendre rendez-vous</a>
-  <a class="js-wa" href="#" data-wa-text="Bonjour, je souhaite prendre rendez-vous au Cabinet Assala.">WhatsApp</a>
+  <a class="js-wa" href="#" data-wa-text="Bonjour, je souhaite prendre rendez-vous au Pôle Assala.">WhatsApp</a>
 </div>
-<a class="fab js-wa" href="#" data-wa-text="Bonjour, je souhaite prendre rendez-vous au Cabinet Assala." aria-label="WhatsApp">
+<a class="fab js-wa" href="#" data-wa-text="Bonjour, je souhaite prendre rendez-vous au Pôle Assala." aria-label="WhatsApp">
   <span class="gdot"></span>
   <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 004.79 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm4.52 11.99c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
 </a>
@@ -780,27 +858,40 @@ footer a:hover{color:var(--on-pine)}
         <input id="bPhone" type="tel" autocomplete="tel" inputmode="tel" placeholder="0X XX XX XX XX">
       </div>
       <div class="bfield">
+        <label>Vous êtes</label>
+        <div class="chips" id="bGender">
+          <span class="chip" data-v="Femme">Femme</span>
+          <span class="chip" data-v="Homme">Homme</span>
+        </div>
+      </div>
+      <div class="bfield">
         <label>Type de séance</label>
         <div class="chips" id="bChips">
-          <span class="chip" data-type="Structurelle">Structurelle</span>
-          <span class="chip" data-type="Crânienne">Crânienne</span>
-          <span class="chip" data-type="Viscérale">Viscérale</span>
-          <span class="chip" data-type="Grossesse & post-partum">Grossesse</span>
-          <span class="chip" data-type="Bébé & enfant">Bébé & enfant</span>
-          <span class="chip" data-type="Sport">Sport</span>
-          <span class="chip" data-type="Je ne sais pas encore">Je ne sais pas</span>
+          <span class="chip" data-type="Ostéopathie">Ostéopathie</span>
+          <span class="chip" data-type="Massage">Massage</span>
+          <span class="chip" data-type="Selon consultation">Selon consultation</span>
+        </div>
+        <div class="bsub" id="bMassage" hidden>
+          <small>Quel massage ?</small>
+          <div class="chips" id="bMassageChips">
+            <span class="chip" data-v="Massage sportif">Massage sportif</span>
+            <span class="chip" data-v="Massage des nœuds musculaires">Nœuds musculaires</span>
+            <span class="chip" data-v="Selon consultation">Selon consultation</span>
+          </div>
         </div>
       </div>
-      <div class="brow">
-        <div class="bfield" style="margin-bottom:0">
-          <label for="bDate">Date souhaitée</label>
-          <input id="bDate" type="date">
-        </div>
-        <div class="bfield" style="margin-bottom:0">
-          <label for="bTime">Heure souhaitée</label>
-          <input id="bTime" type="time">
+      <div class="bfield">
+        <label for="bDate">Date souhaitée</label>
+        <input id="bDate" type="date">
+      </div>
+      <div class="bfield" style="margin-bottom:0">
+        <label>Créneau souhaité</label>
+        <div class="slots" id="bSlots">
+          <button type="button" class="slot" data-v="Matin (9h – 14h)"><b>Matin</b><span>9h – 14h</span></button>
+          <button type="button" class="slot" data-v="Soirée (18h – 23h)"><b>Soirée</b><span>18h – 23h</span></button>
         </div>
       </div>
+      <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true"><label>Site web <input type="text" id="bHp" tabindex="-1" autocomplete="off"></label></div>
       <div style="margin-top:24px">
         <button class="btn btn-clay" id="bSubmit">Confirmer la demande</button>
         <p class="modal-or">— ou —</p>
@@ -816,8 +907,9 @@ footer a:hover{color:var(--on-pine)}
       <div class="modal-thanks">
         <div class="ok"><svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3 class="dsp">Merci de votre confiance.</h3>
-        <p>Votre demande est bien reçue. Nous vous contacterons dans les plus brefs délais pour confirmer votre rendez-vous.</p>
+        <p id="bookThanksMsg">Votre demande est bien reçue. Nous vous contacterons dans les plus brefs délais pour confirmer votre rendez-vous.</p>
         <div class="book-summary" id="bookSummary"></div>
+        <a class="modal-wa" id="bookThanksWa" href="#" target="_blank" rel="noopener" style="margin-bottom:12px">Confirmer aussi sur WhatsApp</a>
         <button class="btn btn-pine" data-close>Fermer</button>
       </div>
     </div>
@@ -825,13 +917,13 @@ footer a:hover{color:var(--on-pine)}
   </div>
 </div>
 
+<script src="site-data.js"></script>
 <script>
-// ---- WhatsApp config ----
-// TODO: replace with the real number, international format, digits only (e.g. 213551234567)
-const WHATSAPP_NUMBER='213XXXXXXXXX';
+// ---- WhatsApp config (number is set in site-data.js) ----
+const WHATSAPP_NUMBER=(window.ASSALA_CONFIG&&ASSALA_CONFIG.whatsapp)||'213XXXXXXXXX';
 function waLink(text){return 'https://wa.me/'+WHATSAPP_NUMBER+(text?('?text='+encodeURIComponent(text)):'')}
 document.querySelectorAll('.js-wa').forEach(el=>{
-  el.href=waLink(el.dataset.waText||'Bonjour, je souhaite prendre rendez-vous au Cabinet Assala.');
+  el.href=waLink(el.dataset.waText||'Bonjour, je souhaite prendre rendez-vous au Pôle Assala.');
   el.target='_blank';el.rel='noopener';
 });
 
@@ -860,10 +952,37 @@ document.querySelector('.testi').addEventListener('mouseenter',()=>clearInterval
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 // spine active tracking
-const secs=['top','parcours','soin','approche','assala','avis','faq'].map(id=>document.getElementById(id));
+const secs=['top','parcours','soin','formations','approche','assala','avis','faq'].map(id=>document.getElementById(id));
 const links=[...document.querySelectorAll('.spine a')];
 const so=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const id=e.target.id;links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+id))}})},{rootMargin:'-45% 0px -45% 0px'});
 secs.forEach(s=>s&&so.observe(s));
+
+// ---- Formations teaser: next 3 upcoming sessions from site-data.js ----
+(function(){
+  const box=document.getElementById('fmTeaser');
+  if(!box||!window.FORMATIONS)return;
+  const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const today=new Date();today.setHours(0,0,0,0);
+  const next=FORMATIONS.filter(f=>!f.dateDebut||new Date(f.dateDebut+'T23:59:59')>=today)
+    .sort((a,b)=>(a.dateDebut||'9999').localeCompare(b.dateDebut||'9999')).slice(0,3);
+  const n=FORMATIONS.filter(f=>!f.dateDebut||new Date(f.dateDebut+'T23:59:59')>=today).length;
+  const ac=document.getElementById('annCount');
+  if(ac&&n)ac.textContent=n+(n>1?' formations':' formation');
+  if(!next.length)return; // keeps the fallback link
+  box.innerHTML=next.map(f=>{
+    const left=f.placesRestantes;
+    let badge='';
+    if(left!=null){
+      if(left<=0)badge='<span class="fm-badge full">Complet</span>';
+      else if(left<=3)badge='<span class="fm-badge hot">'+(left==1?'Dernière place':'Plus que '+left+' places')+'</span>';
+      else badge='<span class="fm-badge">'+left+' places</span>';
+    }
+    return '<a class="fm-card" href="formations.html#'+encodeURIComponent(f.id)+'">'+
+      '<div class="fm-media">'+(f.image?'<img src="'+esc(f.image)+'" alt="" loading="lazy">':'')+badge+'</div>'+
+      '<div class="fm-body"><div class="fm-theme">'+esc(f.theme)+'</div><h3>'+esc(f.titre)+'</h3>'+
+      '<div class="fm-foot"><span>'+esc(f.dates||'')+'</span><b>Détails <svg width="18" height="10" viewBox="0 0 22 12" fill="none"><path d="M0 6h20M15 1l5 5-5 5" stroke="currentColor" stroke-width="1.5"/></svg></b></div></div></a>';
+  }).join('');
+})();
 
 // ---- Booking modal ----
 const bModal=document.getElementById('bookModal');
@@ -872,22 +991,28 @@ const bThanks=document.getElementById('bookThanks');
 const bName=document.getElementById('bName');
 const bPhone=document.getElementById('bPhone');
 const bDate=document.getElementById('bDate');
-const bTime=document.getElementById('bTime');
 const bChips=document.getElementById('bChips');
+const bGender=document.getElementById('bGender');
+const bMassage=document.getElementById('bMassage');
+const bMassageChips=document.getElementById('bMassageChips');
+const bSlots=document.getElementById('bSlots');
 const modalWaLink=document.getElementById('modalWaLink');
-let bType='';
+let bType='',bMassageType='',bSex='',bSlot='';
+const escH=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function seance(){return bType==='Massage'?(bMassageType?'Massage — '+bMassageType:'Massage'):bType}
 
 function updateModalWaLink(){
-  let msg='Bonjour, je souhaite prendre rendez-vous au Cabinet Assala.';
-  if(bType)msg+=' Motif : '+bType+'.';
+  let msg='Bonjour, je souhaite prendre rendez-vous au Pôle Assala.';
+  if(bType)msg+=' Séance : '+seance()+'.';
   if(bName.value.trim())msg+=' Nom : '+bName.value.trim()+'.';
-  if(bDate.value||bTime.value)msg+=' Créneau souhaité : '+(bDate.value||'')+' '+(bTime.value||'')+'.';
+  if(bSex)msg+=' ('+bSex+')';
+  if(bDate.value||bSlot)msg+=' Créneau souhaité : '+[bDate.value,bSlot].filter(Boolean).join(', ')+'.';
   modalWaLink.href=waLink(msg);
 }
-[bName,bDate,bTime].forEach(f=>f.addEventListener('input',updateModalWaLink));
+[bName,bDate].forEach(f=>f.addEventListener('input',updateModalWaLink));
 updateModalWaLink();
 
-// no past dates (booking still allowed any future date/time)
+// no past dates
 bDate.min=new Date().toISOString().split('T')[0];
 
 function openBook(e){
@@ -904,33 +1029,65 @@ function closeBook(){
 }
 // open from any booking trigger (links to #reserver + closing CTA + mobile bar)
 document.querySelectorAll('a[href="#reserver"], #reserver .btn-clay').forEach(el=>el.addEventListener('click',openBook));
-// close handlers
 bModal.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',closeBook));
 addEventListener('keydown',e=>{if(e.key==='Escape'&&bModal.classList.contains('open'))closeBook()});
-// chip select
-bChips.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{
-  bChips.querySelectorAll('.chip').forEach(x=>x.classList.remove('sel'));
-  c.classList.add('sel');bType=c.dataset.type;bChips.classList.remove('err');
-  updateModalWaLink();
+
+// single-choice groups
+function pick(group,sel,cb){
+  group.querySelectorAll(sel).forEach(c=>c.onclick=()=>{
+    group.querySelectorAll(sel).forEach(x=>x.classList.remove('sel'));
+    c.classList.add('sel');group.classList.remove('err');
+    cb(c);updateModalWaLink();
+  });
+}
+pick(bChips,'.chip',c=>{
+  bType=c.dataset.type;
+  bMassage.hidden=bType!=='Massage';
+  if(bType!=='Massage'){bMassageType='';bMassageChips.querySelectorAll('.chip').forEach(x=>x.classList.remove('sel'))}
 });
+pick(bMassageChips,'.chip',c=>{bMassageType=c.dataset.v});
+pick(bGender,'.chip',c=>{bSex=c.dataset.v});
+pick(bSlots,'.slot',c=>{bSlot=c.dataset.v});
+
 // submit
-document.getElementById('bSubmit').onclick=()=>{
+const bSubmit=document.getElementById('bSubmit');
+bSubmit.onclick=async()=>{
   let ok=true;
-  [bName,bPhone,bDate,bTime].forEach(f=>{
+  [bName,bPhone,bDate].forEach(f=>{
     if(!f.value.trim()){f.classList.add('err');ok=false;}else{f.classList.remove('err');}
   });
+  if(!bSex){bGender.classList.add('err');ok=false;}
   if(!bType){bChips.classList.add('err');ok=false;}
+  if(bType==='Massage'&&!bMassageType){bMassageChips.classList.add('err');ok=false;}
+  if(!bSlot){bSlots.classList.add('err');ok=false;}
   if(!ok){return;}
-  // build summary
   const d=new Date(bDate.value);
   const dStr=d.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
   document.getElementById('bookSummary').innerHTML=
-    '<div><span>Nom</span><b>'+bName.value+'</b></div>'+
-    '<div><span>Téléphone</span><b>'+bPhone.value+'</b></div>'+
-    '<div><span>Séance</span><b>'+bType+'</b></div>'+
-    '<div><span>Date</span><b>'+dStr+'</b></div>'+
-    '<div><span>Heure</span><b>'+bTime.value+'</b></div>';
-  // TODO: send to backend / email here later
+    '<div><span>Nom</span><b>'+escH(bName.value)+'</b></div>'+
+    '<div><span>Téléphone</span><b>'+escH(bPhone.value)+'</b></div>'+
+    '<div><span>Vous êtes</span><b>'+escH(bSex)+'</b></div>'+
+    '<div><span>Séance</span><b>'+escH(seance())+'</b></div>'+
+    '<div><span>Date</span><b>'+escH(dStr)+'</b></div>'+
+    '<div><span>Créneau</span><b>'+escH(bSlot)+'</b></div>';
+  // send to the Google Sheet (tab « Rendez-vous ») — URL set in site-data.js
+  const sheetUrl=window.ASSALA_CONFIG&&ASSALA_CONFIG.sheetUrl;
+  let saved=false;
+  if(sheetUrl){
+    bSubmit.disabled=true;bSubmit.textContent='Envoi en cours…';
+    try{
+      await fetch(sheetUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},
+        body:JSON.stringify({type:'rdv',nom:bName.value.trim(),telephone:bPhone.value.trim(),sexe:bSex,seance:seance(),date:bDate.value,creneau:bSlot,website:document.getElementById('bHp').value})});
+      saved=true;
+    }catch(err){saved=false}
+    bSubmit.disabled=false;bSubmit.textContent='Confirmer la demande';
+  }
+  updateModalWaLink();
+  document.getElementById('bookThanksWa').href=modalWaLink.href;
+  document.getElementById('bookThanksMsg').textContent=saved
+    ?'Votre demande est bien reçue. Nous vous contacterons dans les plus brefs délais pour confirmer votre rendez-vous.'
+    :'Dernière étape : envoyez votre demande sur WhatsApp pour que nous puissions confirmer votre rendez-vous.';
+  document.getElementById('bookThanksWa').textContent=saved?'Confirmer aussi sur WhatsApp':'Envoyer sur WhatsApp';
   bForm.hidden=true;bThanks.hidden=false;
   bModal.querySelector('.modal-card').scrollTop=0;
 };
@@ -1028,7 +1185,7 @@ const galEmpty=document.getElementById('galEmpty');
       const fig=document.createElement('figure');
       fig.className='gal-item';
       const im=document.createElement('img');
-      im.src=probe.src;im.alt='Cabinet Assala — photo '+num;im.loading='lazy';
+      im.src=probe.src;im.alt='Pôle Assala — photo '+num;im.loading='lazy';
       fig.appendChild(im);galScroll.appendChild(fig);
       // brick lays in with a slight stagger
       requestAnimationFrame(()=>setTimeout(()=>fig.classList.add('in'),found*70));
