@@ -409,8 +409,14 @@ footer a:hover{color:var(--on-pine)}
 .bsub small{display:block;font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--muted);margin-bottom:9px}
 .bsub .chip{background:var(--card)}
 .bsub .chip.sel{background:var(--pine)}
-.slots{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.slot{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:12px 14px;text-align:left;background:var(--bone);border:1px solid var(--line);border-radius:4px;cursor:pointer;font-family:'Hanken Grotesk';color:var(--pine);transition:background .2s,border-color .2s,color .2s}
+.slots{display:flex;flex-direction:column;gap:14px}
+.slot-grp small{display:block;font-size:12.5px;color:var(--muted);margin-bottom:7px}
+.slots-row{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}
+@media(max-width:420px){.slots-row{grid-template-columns:repeat(4,1fr)}}
+.slot-note{font-size:12.5px;color:var(--muted);margin-top:10px}
+.slot:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.slot:disabled:hover{border-color:var(--line)}
+.slot{display:flex;align-items:center;justify-content:center;padding:10px 4px;font-size:14px;font-weight:600;text-align:center;background:var(--bone);border:1px solid var(--line);border-radius:4px;cursor:pointer;font-family:'Hanken Grotesk';color:var(--pine);transition:background .2s,border-color .2s,color .2s}
 .slot b{font-family:'Bricolage Grotesque';font-weight:600;font-size:16px}
 .slot span{font-size:13px;color:var(--muted)}
 .slot:hover{border-color:var(--pine)}
@@ -872,9 +878,10 @@ footer a:hover{color:var(--on-pine)}
       <div class="bfield" style="margin-bottom:0">
         <label>Créneau souhaité</label>
         <div class="slots" id="bSlots">
-          <button type="button" class="slot" data-v="Matin (9h – 14h)"><b>Matin</b><span>9h – 14h</span></button>
-          <button type="button" class="slot" data-v="Soirée (18h – 23h)"><b>Soirée</b><span>18h – 23h</span></button>
+          <div class="slot-grp"><small>Matin · 9h – 14h</small><div class="slots-row"><button type="button" class="slot" data-v="9h00 – 9h30" data-start="540">9h00</button><button type="button" class="slot" data-v="9h30 – 10h00" data-start="570">9h30</button><button type="button" class="slot" data-v="10h00 – 10h30" data-start="600">10h00</button><button type="button" class="slot" data-v="10h30 – 11h00" data-start="630">10h30</button><button type="button" class="slot" data-v="11h00 – 11h30" data-start="660">11h00</button><button type="button" class="slot" data-v="11h30 – 12h00" data-start="690">11h30</button><button type="button" class="slot" data-v="12h00 – 12h30" data-start="720">12h00</button><button type="button" class="slot" data-v="12h30 – 13h00" data-start="750">12h30</button><button type="button" class="slot" data-v="13h00 – 13h30" data-start="780">13h00</button><button type="button" class="slot" data-v="13h30 – 14h00" data-start="810">13h30</button></div></div>
+          <div class="slot-grp"><small>Soirée · 18h – 23h</small><div class="slots-row"><button type="button" class="slot" data-v="18h00 – 18h30" data-start="1080">18h00</button><button type="button" class="slot" data-v="18h30 – 19h00" data-start="1110">18h30</button><button type="button" class="slot" data-v="19h00 – 19h30" data-start="1140">19h00</button><button type="button" class="slot" data-v="19h30 – 20h00" data-start="1170">19h30</button><button type="button" class="slot" data-v="20h00 – 20h30" data-start="1200">20h00</button><button type="button" class="slot" data-v="20h30 – 21h00" data-start="1230">20h30</button><button type="button" class="slot" data-v="21h00 – 21h30" data-start="1260">21h00</button><button type="button" class="slot" data-v="21h30 – 22h00" data-start="1290">21h30</button><button type="button" class="slot" data-v="22h00 – 22h30" data-start="1320">22h00</button><button type="button" class="slot" data-v="22h30 – 23h00" data-start="1350">22h30</button></div></div>
         </div>
+        <p class="slot-note">Séances de 30 min · Ouvert 7j/7</p>
       </div>
       <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true"><label>Site web <input type="text" id="bHp" tabindex="-1" autocomplete="off"></label></div>
       <div style="margin-top:24px">
@@ -1033,6 +1040,17 @@ pick(bChips,'.chip',c=>{
 pick(bMassageChips,'.chip',c=>{bMassageType=c.dataset.v});
 pick(bGender,'.chip',c=>{bSex=c.dataset.v});
 pick(bSlots,'.slot',c=>{bSlot=c.dataset.v});
+// on today's date, grey out slots that have already started
+function refreshSlots(){
+  const today=new Date(),iso=today.getFullYear()+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'+String(today.getDate()).padStart(2,'0');
+  const nowMin=today.getHours()*60+today.getMinutes();
+  bSlots.querySelectorAll('.slot').forEach(s=>{
+    const past=bDate.value===iso&&+s.dataset.start<=nowMin;
+    s.disabled=past;
+    if(past&&s.classList.contains('sel')){s.classList.remove('sel');bSlot='';updateModalWaLink()}
+  });
+}
+bDate.addEventListener('input',refreshSlots);bDate.addEventListener('change',refreshSlots);
 
 // submit
 const bSubmit=document.getElementById('bSubmit');
