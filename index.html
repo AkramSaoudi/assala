@@ -151,7 +151,7 @@ header.scrolled .ann{max-height:0}
 
 /* ---- Marquee ---- */
 .marquee{margin-top:96px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:var(--bone-2)}
-.marquee-track{display:flex;white-space:nowrap;will-change:transform;animation:slide 34s linear infinite}
+.marquee-track{display:flex;white-space:nowrap;will-change:transform;animation:slide 14s linear infinite}
 .marquee:hover .marquee-track{animation-play-state:paused}
 .marquee span{font-family:'Bricolage Grotesque';font-weight:500;font-size:clamp(20px,2.4vw,30px);padding:20px 0;color:var(--pine)}
 .marquee .dot{color:var(--clay);padding:0 26px}
@@ -387,6 +387,11 @@ footer a:hover{color:var(--on-pine)}
 .modal-x{position:absolute;top:16px;right:18px;background:none;border:none;font-size:30px;line-height:1;color:var(--muted);cursor:pointer;transition:.2s}
 .modal-x:hover{color:var(--ink)}
 .modal-card h3{font-size:clamp(26px,4vw,34px);margin:14px 0 8px}
+.open77{display:inline-flex;align-items:center;gap:14px;background:var(--pine);color:var(--on-pine);border-radius:16px;padding:12px 20px 12px 14px;margin-bottom:22px}
+.open77 b{font-family:'Bricolage Grotesque';font-size:30px;line-height:1;background:var(--clay);color:#241008;border-radius:11px;padding:8px 12px}
+.open77 span{font-weight:600;font-size:15px;line-height:1.3}
+.open77 small{display:block;font-weight:400;font-size:12.5px;opacity:.75;margin-top:3px}
+.open77.dark{background:rgba(239,233,220,.08);border:1px solid rgba(239,233,220,.18);text-align:left;margin:0 auto 26px}
 .modal-sub{color:var(--muted);font-size:15px;margin-bottom:22px}
 .bfield{margin-bottom:18px}
 .bfield label{display:block;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:9px}
@@ -501,18 +506,18 @@ footer a:hover{color:var(--on-pine)}
         <h1 class="dsp">Une équipe.<br>Une vision.<br><em>Votre équilibre.</em></h1>
       </div>
       <div class="hero-meta">
-        <p>L'ostéopathie au cœur du Centre Assala : une approche manuelle et globale qui traite la cause de vos douleurs — dos, nuque, articulations, maux de tête, grossesse et nourrisson — pour retrouver mobilité et équilibre.</p>
+        <p>L'ostéopathie au cœur du Centre Assala : une approche manuelle et globale qui traite la cause de vos douleurs — dos, nuque, articulations, maux de tête — pour retrouver mobilité et équilibre.</p>
+        <div class="open77"><b>7j/7</b><span>Ouvert tous les jours de la semaine<small>Matin 9h – 14h · Soirée 18h – 23h</small></span></div>
         <div class="hero-cta">
-          <a class="btn btn-clay js-wa" href="#" data-wa-text="Bonjour, je souhaite réserver une séance d'ostéopathie au Centre Assala.">Réserver une séance d'ostéopathie</a>
-          <a class="btn btn-line" href="#reserver">Prendre rendez-vous</a>
+          <a class="btn btn-clay" href="#reserver">Prendre rendez-vous</a>
         </div>
         <div class="hero-proof">
           <a class="proof-parcours" href="#parcours">
-            <span class="rate">08</span>
+            <span class="rate">06</span>
             <span class="proof-txt">Disciplines réunies<br>en un seul lieu</span>
             <svg class="proof-arrow" width="18" height="10" viewBox="0 0 22 12" fill="none"><path d="M0 6h20M15 1l5 5-5 5" stroke="currentColor" stroke-width="1.5"/></svg>
           </a>
-          <span class="proof-reviews"><span class="stars">★★★★★</span> 4,9 · [N] avis<br>Sur rendez-vous 6 jours / 7</span>
+          <span class="proof-reviews"><span class="stars">★★★★★</span> 4,9 · [N] avis<br>Rendez-vous 7j/7</span>
         </div>
       </div>
     </div>
@@ -577,17 +582,15 @@ footer a:hover{color:var(--on-pine)}
     </div>
 
     <div class="rv" style="margin-top:48px">
-      <h4 class="pq-h">Les 8 disciplines du parcours — glissez pour découvrir chaque étape</h4>
+      <h4 class="pq-h">Les 6 disciplines du parcours — glissez pour découvrir chaque étape</h4>
       <div class="rm-deck-wrap">
-        <div class="rm-deck" id="rmDeck" tabindex="0" role="region" aria-label="Les 8 disciplines du Parcours Mensuel">
+        <div class="rm-deck" id="rmDeck" tabindex="0" role="region" aria-label="Les 6 disciplines du Parcours Mensuel">
           <div class="rm-card"><span class="rm-num">01</span><h4 class="dsp">Kinésithérapie</h4><p>Douleur après une blessure, une opération ou un faux mouvement ? On rééduque et on renforce, sans forcer.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
-          <div class="rm-card"><span class="rm-num">02</span><h4 class="dsp">Ostéopathie</h4><p>Mal de dos, nuque bloquée, maux de tête à répétition ? On traite la cause, pas seulement le symptôme.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
-          <div class="rm-card"><span class="rm-num">03</span><h4 class="dsp">Nutrition</h4><p>Fatigue, ballonnements, poids qui ne bouge pas ? Une alimentation adaptée qui prolonge l'effet de chaque séance.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
+          <div class="rm-card"><span class="rm-num">02</span><h4 class="dsp">Ostéopathie articulaire</h4><p>Mal de dos, nuque bloquée, maux de tête à répétition ? On traite la cause, pas seulement le symptôme.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
+          <div class="rm-card"><span class="rm-num">03</span><h4 class="dsp">Nutrition &amp; drainage lymphatique</h4><p>Fatigue, ballonnements, jambes lourdes, rétention d'eau ? Une alimentation adaptée et un drainage qui relance la circulation.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
           <div class="rm-card"><span class="rm-num">04</span><h4 class="dsp">Podologie</h4><p>Mal aux pieds, aux genoux ou au dos en marchant ? Souvent, c'est l'appui — on le corrige.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
-          <div class="rm-card"><span class="rm-num">05</span><h4 class="dsp">Réflexologie plantaire</h4><p>Stress, sommeil agité, tensions qui s'accumulent ? On relâche le corps, point par point.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
-          <div class="rm-card"><span class="rm-num">06</span><h4 class="dsp">Drainage lymphatique</h4><p>Jambes lourdes, gonflements, rétention d'eau ? On relance la circulation pour retrouver la légèreté.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
-          <div class="rm-card"><span class="rm-num">07</span><h4 class="dsp">Ventouses (Hijama)</h4><p>Contractures tenaces, dos noué que rien ne soulage ? On libère les tensions musculaires profondes.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
-          <div class="rm-card"><span class="rm-num">08</span><h4 class="dsp">Soins bien-être (massage de nœud musculaire)</h4><p>Nœuds dans les épaules, nuque raide, fatigue nerveuse ? Un massage ciblé pour dénouer et souffler.</p><a class="rm-final js-wa" href="#" data-wa-text="Bonjour, je souhaite réserver mon Parcours Mensuel ASSALA.">Réserver mon Parcours Mensuel →</a></div>
+          <div class="rm-card"><span class="rm-num">05</span><h4 class="dsp">Ventouses (Hijama)</h4><p>Contractures tenaces, dos noué que rien ne soulage ? On libère les tensions musculaires profondes.</p><span class="rm-hint" aria-hidden="true">Faites défiler ↓</span></div>
+          <div class="rm-card"><span class="rm-num">06</span><h4 class="dsp">Soins bien-être (ostéopathie tissulaire)</h4><p>Nœuds dans les épaules, nuque raide, fatigue nerveuse ? Un travail ciblé des tissus pour dénouer et souffler.</p><a class="rm-final js-wa" href="#" data-wa-text="Bonjour, je souhaite réserver mon Parcours Mensuel ASSALA.">Réserver mon Parcours Mensuel →</a></div>
         </div>
         <div class="rm-controls">
           <button class="rm-arrow-btn" id="rmPrev" aria-label="Discipline précédente" type="button"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 13L5 8l5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -667,15 +670,6 @@ footer a:hover{color:var(--on-pine)}
         <span class="go"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5"/></svg></span>
       </a>
 
-      <a class="srv-row rv" href="#">
-        <span class="num">06</span>
-        <span class="main">
-          <img class="ico" src="grossesse.png" alt="">
-          <h3 class="dsp">Douleurs de grossesse</h3>
-        </span>
-        <span class="desc">Dos, bassin, jambes lourdes : un accompagnement doux avant et après l'accouchement.</span>
-        <span class="go"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5"/></svg></span>
-      </a>
     </div>
   </div>
 </section>
@@ -761,20 +755,9 @@ footer a:hover{color:var(--on-pine)}
         <blockquote class="dsp">Après des années de lombalgie, trois séances ont suffi pour retrouver une vraie liberté.</blockquote>
         <div class="src"><span class="av">S</span><div><b>Sara M.</b><small>Mal de dos chronique</small></div></div>
       </div>
-      <div class="tq-item">
-        <blockquote class="dsp">Si douce avec mon bébé qui souffrait de coliques. Un soulagement pour toute la famille.</blockquote>
-        <div class="src"><span class="av">M</span><div><b>Mounia B.</b><small>Ostéopathie du nourrisson</small></div></div>
-      </div>
-      <div class="tq-item">
-        <blockquote class="dsp">Suivie pendant toute ma grossesse, j'ai énormément moins souffert du dos. Merci.</blockquote>
-        <div class="src"><span class="av">A</span><div><b>Amel K.</b><small>Grossesse</small></div></div>
-      </div>
     </div>
     <div class="tq-foot rv">
       <div class="tdots">
-        <button class="on" data-i="0" aria-label="Avis 1"></button>
-        <button data-i="1" aria-label="Avis 2"></button>
-        <button data-i="2" aria-label="Avis 3"></button>
       </div>
       <a class="greview" href="#"><span class="g"></span><b>4,9</b> / 5 · [N] avis vérifiés Google →</a>
     </div>
@@ -789,10 +772,9 @@ footer a:hover{color:var(--on-pine)}
       <h2 class="dsp" style="margin-top:16px;font-size:clamp(30px,3.6vw,46px)">Ce qu'on nous demande le plus souvent.</h2>
     </div>
     <div class="rv">
-      <div class="acc"><button class="acc-q">L'ostéopathie, c'est pour quoi ?<span class="pm">+</span></button><div class="acc-a"><p>Douleurs articulaires et musculaires, maux de tête, troubles digestifs, accompagnement de la grossesse et du nourrisson, et de nombreux troubles fonctionnels.</p></div></div>
+      <div class="acc"><button class="acc-q">L'ostéopathie, c'est pour quoi ?<span class="pm">+</span></button><div class="acc-a"><p>Douleurs articulaires et musculaires, maux de tête, troubles digestifs et de nombreux troubles fonctionnels.</p></div></div>
       <div class="acc"><button class="acc-q">Est-ce que ça fait mal ?<span class="pm">+</span></button><div class="acc-a"><p>Les techniques restent douces et adaptées à chacun. Une légère sensibilité peut suivre la séance, le temps que le corps s'ajuste.</p></div></div>
       <div class="acc"><button class="acc-q">Combien de séances faut-il ?<span class="pm">+</span></button><div class="acc-a"><p>Souvent 1 à 3 selon le motif. Le bilan initial permet d'estimer la prise en charge dès la première séance.</p></div></div>
-      <div class="acc"><button class="acc-q">Est-ce adapté aux femmes enceintes et aux bébés ?<span class="pm">+</span></button><div class="acc-a"><p>Oui — des techniques spécifiques et douces accompagnent la grossesse, le post-partum et les nourrissons en toute sécurité.</p></div></div>
       <div class="acc"><button class="acc-q">Quels sont les tarifs ?<span class="pm">+</span></button><div class="acc-a"><p>La séance est à [X DA], réglée directement au cabinet — sans frais caché ni surprise à la fin.</p></div></div>
     </div>
   </div>
@@ -803,12 +785,13 @@ footer a:hover{color:var(--on-pine)}
   <div class="spinemark"><i></i><span class="ln"></span><i></i><span class="ln"></span><i></i><span class="ln"></span><i></i></div>
   <div class="wrap">
     <h2 class="dsp">Et si vous repreniez <em>le mouvement ?</em></h2>
+    <div class="open77 dark"><b>7j/7</b><span>Rendez-vous tous les jours, week-end compris<small>Matin 9h – 14h · Soirée 18h – 23h</small></span></div>
     <p>Réservez en ligne en une minute — ou écrivez-nous sur WhatsApp.</p>
     <div class="cta">
       <a class="btn btn-clay" href="#reserver">Prendre rendez-vous</a>
       <a class="btn btn-ghost js-wa" href="#" data-wa-text="Bonjour, je souhaite prendre rendez-vous au Pôle Assala.">WhatsApp</a>
     </div>
-    <p class="addr">[Adresse], Draria, Alger · Sur rendez-vous · [horaires]</p>
+    <p class="addr">[Adresse], Draria, Alger · Rendez-vous 7j/7 · 9h – 14h et 18h – 23h</p>
   </div>
 </section>
 
@@ -848,7 +831,7 @@ footer a:hover{color:var(--on-pine)}
     <div id="bookForm">
       <span class="eyebrow">Rendez-vous</span>
       <h3 id="bookTitle" class="dsp">Réservez en une minute.</h3>
-      <p class="modal-sub">Laissez vos coordonnées — nous confirmons votre créneau rapidement.</p>
+      <p class="modal-sub">Laissez vos coordonnées — nous confirmons votre créneau rapidement. <b style="color:var(--clay-deep)">Ouvert 7j/7.</b></p>
 
       <div class="bfield">
         <label for="bName">Votre nom</label>
@@ -870,7 +853,8 @@ footer a:hover{color:var(--on-pine)}
         <div class="chips" id="bChips">
           <span class="chip" data-type="Ostéopathie">Ostéopathie</span>
           <span class="chip" data-type="Massage">Massage</span>
-          <span class="chip" data-type="Selon consultation">Selon consultation</span>
+          <span class="chip" data-type="Nutrition &amp; drainage lymphatique">Nutrition &amp; drainage lymphatique</span>
+          <span class="chip" data-type="À décider après consultation">Je préfère décider après consultation</span>
         </div>
         <div class="bsub" id="bMassage" hidden>
           <small>Quel massage ?</small>
